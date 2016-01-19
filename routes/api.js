@@ -24,7 +24,7 @@ router.post('/logout', function(req, res) {
   return res.send({});
 });
 
-router.get('/session', function(req, res) {
+router.get('/sessioninfo', function(req, res) {
   if (req.user) {
     res.send({userId: req.user.id});
   } else {
