@@ -58,6 +58,7 @@ var getDocuments = function(req, res) {
 };
 
 var getElementList = function(req, res) {
+  console.log("IN GET ELEM", req, req.user)
   request.get({
     uri: 'https://cad.onshape.com/api/documents/d/' + req.query.documentId + "/w/" + req.query.workspaceId + '/elements',
     headers: {
@@ -79,6 +80,7 @@ var getElementList = function(req, res) {
 };
 
 var getPartsList = function(req, res) {
+  console.log("IN GET PARTS", req, req.user)
   request.get({
     uri: 'https://cad.onshape.com/api/parts/d/' + req.query.documentId + "/w/" + req.query.workspaceId,
     headers: {
@@ -100,6 +102,8 @@ var getPartsList = function(req, res) {
 };
 
 var getStl = function(req, res) {
+  console.log("IN GET STL", req, req.user)
+
   var url;
   if (req.query.partId != null) {
     url = 'https://cad.onshape.com/api/parts/d/' + req.query.documentId +
