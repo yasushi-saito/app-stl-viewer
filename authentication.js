@@ -53,7 +53,8 @@ function init() {
 function onOAuthTokenReceived(body, req) {
   var jsonResponse;
   jsonResponse = JSON.parse(body);
-  console.log("ONAUTH TOKEN REC", req, req.user, jsonResponse.access_token, jsonResponse.refresh_token);
+  console.log("ONAUTH TOKEN REC USER", req.user, "ACCESS", jsonResponse.access_token,
+	      "REFRESH", jsonResponse.refresh_token);
   if (jsonResponse) {
     req.user.accessToken = jsonResponse.access_token;
     req.user.refreshToken = jsonResponse.refresh_token;
