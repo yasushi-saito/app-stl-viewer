@@ -25,10 +25,10 @@ function init() {
       clientID: oauthClientId,
       clientSecret: oauthClientSecret,
       // Replace the callbackURL string with your own deployed servers path to handle the OAuth redirect
-      callbackURL: "https://onshape-app-stl.herokuapp.com/oauthRedirect",
-      authorizationURL: "https://partner.dev.onshape.com/oauth/authorize",
-      tokenURL: "https://partner.dev.onshape.com/oauth/token",
-      userProfileURL: "https://partner.dev.onshape.com/api/users/current"
+      callbackURL: "https://frozen-falls-28028.herokuapp.com/oauthRedirect",
+      authorizationURL: "https://cad.onshape.com/oauth/authorize",
+      tokenURL: "https://cad.onshape.com/oauth/token",
+      userProfileURL: "https://cad.onshape.com/api/users/current"
     },
     function(accessToken, refreshToken, profile, done) {
       // asynchronous verification, for effect...
@@ -66,7 +66,7 @@ function refreshOAuthToken(req, res, next) {
 
   if (refreshToken) {
     pendingTokenRefreshes[req.session.id] = request.post({
-      uri: 'https://partner.dev.onshape.com/oauth/token',
+      uri: 'https://cad.onshape.com/oauth/token',
       form: {
         'client_id': oauthClientId,
         'client_secret': oauthClientSecret,
@@ -92,7 +92,7 @@ function refreshOAuthToken(req, res, next) {
 }
 
 function getAuthUri() {
-  return 'https://partner.dev.onshape.com/oauth/authorize?response_type=code&client_id=' + oauthClientId;
+  return 'https://cad.onshape.com/oauth/authorize?response_type=code&client_id=' + oauthClientId;
 }
 
 module.exports = {
