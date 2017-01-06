@@ -12,6 +12,8 @@ if (process.env.OAUTH_CLIENT_ID) {
 if (process.env.OAUTH_CLIENT_SECRET) {
   oauthClientSecret = process.env.OAUTH_CLIENT_SECRET;
 }
+console.log("Found OAUTH client ID", oauthClientId,
+	    "and secret ID", oauthClientSecret);
 
 function init() {
   passport.serializeUser(function(user, done) {
@@ -32,6 +34,7 @@ function init() {
     },
     function(accessToken, refreshToken, profile, done) {
       // asynchronous verification, for effect...
+      console.log("Access token got: ", accessToken, refreshToken, profile);
       process.nextTick(function () {
 
         profile.accessToken = accessToken;

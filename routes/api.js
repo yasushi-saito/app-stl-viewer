@@ -36,6 +36,7 @@ router.get('/session', function(req, res) {
 });
 
 var getDocuments = function(req, res) {
+  console.log("IN GET", req, req.user)
   request.get({
     uri: 'https://cad.onshape.com/api/documents',
     headers: {
