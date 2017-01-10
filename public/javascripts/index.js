@@ -226,6 +226,7 @@
             dataType: 'json',
             type: 'GET',
             success: function(data) {
+                console.log("ADD ELEM: ", data, dfd);
                 addElements(data, dfd);
             },
             error: function() {
@@ -257,6 +258,7 @@
                 // URL must contain query string!
                 // (Query string contains document and workspace information)
                 var href = "/" + window.location.search + "&stlElementId=" + data[i].id;
+              console.log('adding elements, href=', href);
                 $("#elt-select2")
                     .append(
                     "<option href='" + href + "'>" + "Element - " + data[i].name + "</option>"
